@@ -47,13 +47,18 @@ public class PlayerController : MonoBehaviour, IDamageable
     {
         rBody = GetComponent<Rigidbody>();
         healthBarUI = GetComponent<HealthBarUI>();
+        playerIsDead = false;
         health = maxHealth;
     }
 
     void Update()
     {
-        RotateTowardsMouse();
-        Fire();
+        if(!playerIsDead)
+        {
+            RotateTowardsMouse();
+            Fire();
+        }
+        
     }
 
     private void FixedUpdate()
@@ -63,7 +68,7 @@ public class PlayerController : MonoBehaviour, IDamageable
 
     private void MovePlayer()
     {
-        if (moveInput != Vector2.zero)
+        if (moveInput != Vector2.zero && !playerIsDead)
         {
             move = new Vector3(moveInput.x, 0f, moveInput.y);
             rBody.MovePosition(rBody.position + move * speed * Time.fixedDeltaTime);

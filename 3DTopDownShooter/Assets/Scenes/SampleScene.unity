@@ -1632,7 +1632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePos: {fileID: 1678897865}
-  playerCanvas: {fileID: 0}
+  playerCanvas: {fileID: 732154499}
   speed: 10
   playerFireDamage: 2
   health: 10
