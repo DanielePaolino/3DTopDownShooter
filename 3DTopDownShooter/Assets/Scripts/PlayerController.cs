@@ -178,6 +178,14 @@ public class PlayerController : MonoBehaviour, IDamageable
         {
             lookInput = ctx.ReadValue<Vector2>();
         };
+
+        InputActions.Player.QuitGame.performed += ctx => QuitGame();
+     
+    }
+
+    private void QuitGame()
+    {
+        Application.Quit();
     }
 
     private void Singleton()
